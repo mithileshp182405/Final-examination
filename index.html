@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>🎓 Exam Prep – 5 Sets · 125 Questions Each</title>
+<link rel="stylesheet" href="css/style.css"/>
+</head>
+<body>
+
+<!-- ══════════════════════ HOME ══════════════════════ -->
+<div id="home">
+  <div class="logo">🎓</div>
+  <h1>Exam Prep · Practice Sets</h1>
+  <p class="sub">125 questions per set · MCQ · MSQ · NAT · Progressive difficulty from Easy → Hard<br>Answer, get instant feedback, clear & remark anytime!</p>
+  <div class="set-grid" id="setGrid">
+    <button class="set-btn" data-set="1" onclick="startSet(1)">
+      <span class="badge">📗</span>
+      <div class="set-name">Set 1</div>
+      <div class="set-level">🟢 Easy</div>
+      <div class="set-score" id="score-display-1">Not attempted</div>
+    </button>
+    <button class="set-btn" data-set="2" onclick="startSet(2)">
+      <span class="badge">📘</span>
+      <div class="set-name">Set 2</div>
+      <div class="set-level">🔵 Easy–Medium</div>
+      <div class="set-score" id="score-display-2">Not attempted</div>
+    </button>
+    <button class="set-btn" data-set="3" onclick="startSet(3)">
+      <span class="badge">📙</span>
+      <div class="set-name">Set 3</div>
+      <div class="set-level">🟡 Medium</div>
+      <div class="set-score" id="score-display-3">Not attempted</div>
+    </button>
+    <button class="set-btn" data-set="4" onclick="startSet(4)">
+      <span class="badge">📕</span>
+      <div class="set-name">Set 4</div>
+      <div class="set-level">🟠 Medium–Hard</div>
+      <div class="set-score" id="score-display-4">Not attempted</div>
+    </button>
+    <button class="set-btn" data-set="5" onclick="startSet(5)">
+      <span class="badge">📓</span>
+      <div class="set-name">Set 5</div>
+      <div class="set-level">🔴 Hard</div>
+      <div class="set-score" id="score-display-5">Not attempted</div>
+    </button>
+  </div>
+  <div class="legend">
+    <span><span style="color:#6c63ff">■</span> MCQ – Single correct</span>
+    <span><span style="color:#43e97b">■</span> MSQ – Multiple correct</span>
+    <span><span style="color:#ffb347">■</span> NAT – Type a number</span>
+  </div>
+</div>
+
+<!-- ══════════════════════ QUIZ ══════════════════════ -->
+<div id="quiz">
+  <div class="quiz-header">
+    <button class="back-btn" onclick="goHome()">← Home</button>
+    <div class="quiz-title" id="quizTitle">Set 1</div>
+    <div class="progress-wrap">
+      <div class="progress-bar"><div class="progress-fill" id="progressFill" style="width:0%"></div></div>
+      <div class="progress-text" id="progressText">0 / 125 answered</div>
+    </div>
+    <div class="score-badge" id="liveScore">Score: 0</div>
+    <button class="submit-btn" onclick="submitAll()">Submit All</button>
+  </div>
+  <div class="section-tabs" id="sectionTabs">
+    <button class="sec-tab active" onclick="jumpSection(0)">A · Python Foundations</button>
+    <button class="sec-tab" onclick="jumpSection(1)">B · Data, SQL & EDA</button>
+    <button class="sec-tab" onclick="jumpSection(2)">C · Regression & ML</button>
+    <button class="sec-tab" onclick="jumpSection(3)">D · GenAI & RAG</button>
+  </div>
+  <div class="questions-area" id="questionsArea"></div>
+  <div class="float-bar">
+    <button class="fab fab-submit" data-tip="Submit All" onclick="submitAll()">✓</button>
+    <button class="fab fab-top" data-tip="Top" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+  </div>
+</div>
+
+<!-- ══════════════════════ RESULTS ══════════════════════ -->
+<div id="results">
+  <div class="results-card">
+    <div class="confetti-msg" id="confettiMsg">🎉</div>
+    <div class="big-score" id="bigScore">0 / 125</div>
+    <div id="resultMsg" style="color:var(--muted);margin:.5rem 0"></div>
+    <div class="results-grid">
+      <div class="res-stat"><span class="val" id="r-correct" style="color:var(--correct)">0</span><div class="lbl">✅ Correct</div></div>
+      <div class="res-stat"><span class="val" id="r-wrong" style="color:var(--wrong)">0</span><div class="lbl">❌ Wrong</div></div>
+      <div class="res-stat"><span class="val" id="r-skip" style="color:var(--muted)">0</span><div class="lbl">⏭ Skipped</div></div>
+      <div class="res-stat"><span class="val" id="r-pct" style="color:var(--accent)">0%</span><div class="lbl">📊 Accuracy</div></div>
+    </div>
+    <div class="res-actions">
+      <button class="res-actions btn-home" onclick="goHome()">🏠 Home</button>
+      <button class="res-actions btn-retry" onclick="retrySet()">🔄 Retry Set</button>
+    </div>
+  </div>
+</div>
+
+<script src="js/questions.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
